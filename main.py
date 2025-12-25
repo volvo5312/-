@@ -2,19 +2,16 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import os # 新增 os 模組用於下載字型
+import os 
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 
-# ==========================================
-# 解決中文字型問題 (自動下載並設定)
-# ==========================================
+
 def set_chinese_font():
-    plt.rcParams['axes.unicode_minus'] = False # 解決負號顯示問題
-    
+    plt.rcParams['axes.unicode_minus'] = False 
     # 判斷是否為 Windows，如果是則使用微軟正黑體
     if os.name == 'nt':
         plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei']
@@ -41,8 +38,7 @@ set_chinese_font()
 # ==========================================
 # 1. 資料準備 (模擬 UCI Student Performance Dataset)
 # ==========================================
-# 為了讓程式碼可直接執行，這裡生成與真實資料集結構相似的模擬數據
-# 若您有真實 csv 檔，請將下方註解並改用 pd.read_csv('student-mat.csv')
+
 
 np.random.seed(42)
 n_samples = 600
